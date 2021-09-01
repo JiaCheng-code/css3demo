@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111627;
+}
+.box1 {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 336px;
+    width: 100%;
+    background: url(../img/bg1.png);
+    animation: bg 30s linear infinite;
+}
+.box2 {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 569px;
+    width: 100%;
+    background: url(../img/bg2.png);
+    opacity: .1;
+    animation: bg 30s linear infinite;
+}
+.box3 {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 384px;
+    width: 100%;
+    background: url(../img/bg3.png);
+    opacity: .5;
+    animation: bg 30s linear infinite;
+}
+.bear {
+    z-index: 4;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+    background: url(../img/bear.png) no-repeat;
+    animation: bear 1s steps(8) infinite,move 3s linear forwards;
+}
+@keyframes bear {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: -1600px 0;
+    }
+}
+@keyframes  move {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+@keyframes bg {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -1200px 0;
+    }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="inner">
+        <img src="img/clos.png" alt="" />
+        <img src="img/full.png" alt="" />
+        <img src="img/open.png" alt="" />
+        <img src="img/prev.png" alt="" />
+        <img src="img/refresh.png" alt="" />
+      </div>
+      <div class="home"></div>
+    </div>
+  </body>
+  <script>
+    window.onload = function () {
+      var homeEle = document.querySelector(".home");
+      var flag = true;
+      var imgs = document.querySelectorAll(".container > .inner >img");
+      var c = 140;
+
+      // 第二部分
+      function fn() {
+        this.style.transition = "1s";
+        this.style.transform = "rotate(0deg) scale(1)";
+        this.style.opacity = 1;
+        this.removeEventListener("transitionend", fn);
+      }
+      for (var i = 0; i < imgs.length; i++) {
+        imgs[i].onclick = function () {
+          this.style.transition = "1s";
+          this.style.transform = "rotate(-720deg) scale(2)";
+          this.style.opacity = 0.1;
+
+          this.addEventListener("transitionend", fn);
+        };
+      }
+      // 第一部分
+      homeEle.onclick = function () {
+        if (flag) {
+          this.style.transform = "rotate(-720deg)";
+          for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.transition = ".5s " + i * 0.1 + "s";
+            imgs[i].style.transform = "rotate(-720deg) scale(1)";
+            imgs[i].style.left =
+              -getPoint(c, (90 * i) / (imgs.length - 1)).left + "px";
+            imgs[i].style.top =
+              -getPoint(c, (90 * i) / (imgs.length - 1)).top + "px";
+          }
+        } else {
+          this.style.transform = "rotate(0deg)";
+          for (var i = 0; i < imgs.length; i++) {
+            imgs[i].style.transition =
+              ".5s " + (imgs.length - 1 - i) * 0.1 + "s";
+            imgs[i].style.transform = "rotate(0deg) scale(1)";
+            imgs[i].style.left = 0 + "px";
+            imgs[i].style.top = 0 + "px";
+          }
+        }
+        flag = !flag;
+      };
+
+      function getPoint(c, deg) {
+        var x = Math.round(c * Math.sin((deg * Math.PI) / 180));
+        var y = Math.round(c * Math.cos((deg * Math.PI) / 180));
+        return { left: x, top: y };
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body,
+      html {
+        height: 100%;
+        overflow: hidden;
+      }
+      .wrap {
+        width: 40px;
+        height: 300px;
+        border: 1px solid;
+        margin: 0 auto;
+        overflow: hidden;
+      }
+      .wrap .inner {
+        height: 600px;
+        background: repeating-linear-gradient(
+          135deg,
+          black 0px,
+          black 10px,
+          white 10px,
+          white 20px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="inner"></div>
+    </div>
+  </body>
+  <script>
+    var inner = document.querySelector(".wrap .inner");
+    var flag = 0;
+    setInterval(function () {
+      flag++;
+      inner.style.marginTop = -flag + "px";
+      if (flag == 300) {
+        flag = 0;
+      }
+    }, 1000 / 60);
+  </script>
+</html>

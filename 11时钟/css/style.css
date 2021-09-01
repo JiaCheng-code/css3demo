@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color:#141929; 
+    overflow: hidden;
+  }
+  html {
+    height: 100%;
+    overflow: hidden;
+  }
+  .clock {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    border-radius: 50%;
+    transition:1s;
+    /* border: 1px solid white; */
+  }
+  .secondBox { 
+    width: 90vh;
+    height: 90vh;   
+  }
+  .minuteBox {
+    width: 75vh;
+    height: 75vh;
+  }
+  .hourBox {
+    width: 60vh;
+    height: 60vh;
+  }
+  .dayBox {
+    width: 45vh;
+    height: 45vh;
+  }
+  .mounthBox {
+    width: 30vh;
+    height: 30vh;
+  }
+  .yearBox {
+    width: 15vh;
+    height: 15vh;
+    line-height: 15vh;
+  }
+  .year {
+    font-size: 16px;
+    left: 25%;
+    color: white;
+  }
+  .active {
+    background-image:-webkit-linear-gradient(bottom, rgb(255 0 0), rgb(120 8 220)) ;
+    background-size:100% 20px ;
+    -webkit-background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -ms-background-clip: text;
+    -webkit-text-fill-color:transparent;
+  }
+  
+

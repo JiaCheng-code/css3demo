@@ -49,6 +49,7 @@ body {
     width: 200px;
     height: 100px;
     background: url(../img/bear.png) no-repeat;
+    /* 通过animation实现奔跑效果 */
     animation: bear 1s steps(8) infinite,move 3s linear forwards;
 }
 @keyframes bear {

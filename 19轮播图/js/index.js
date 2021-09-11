@@ -7,11 +7,13 @@ window.onload = function () {
     var totalOption = document.querySelector(".con").getElementsByTagName("li");
     var timer = null
     var width = 600;
-    console.log(maxlen)
+
+    //循环播放move函数
     timer = setInterval(move,3000);
     function move() { 
         curindex++;
         if (curindex>maxlen) {
+            //使轮播回到第一张
             curindex = 0;
         }
         for(var i = 0; i <= maxlen; i++) {
@@ -20,7 +22,7 @@ window.onload = function () {
         totallunbo.style.left = "-"+width*curindex+"px";
         totalOption[curindex].className = 'active';
      }
-
+     //在for循环里面是一个自执行函数时，在每次循环的过程中会把每个自执行函数在内存中储存起来，对应的i的值也储存在函数中。在循环过后（循环速度很快）,如果自执行函数里面有事件，就在事件触发的时候把i传递给事件处理函数的形参，然后执行；如果自执行函数里面没有事件，就会按照顺序一一执行。
       for(var i = 0;i<=maxlen;i++){
           (function(i) { 
             totalOption[i].index = i;

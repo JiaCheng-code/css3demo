@@ -1,0 +1,62 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+body {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 600px;
+    position: relative;
+    overflow: hidden;
+}
+.lunbo {
+    width: 3000px;
+    height: 225px;
+    display: flex;
+}
+img {
+    width: 600px;
+    height: 225px;
+}
+.con {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    width: 70px;
+    bottom: 5px;
+    margin-left: -35px;
+}
+.con li {
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background: #ccc;
+}
+.left,.right {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    margin-top: -15px;
+    background: url(../img/icon_left.png);
+    background-size:30px;
+    cursor: pointer;
+}
+.right {
+    right: 0;
+    background: url(../img/icon_right.png);
+    background-size: 30px;
+}
+.con .active {
+    background: #fff;
+}

@@ -5,6 +5,8 @@ window.onload = function () {
     var li = totallunbo.getElementsByTagName("li");
 
     var totalOption = document.querySelector(".con").getElementsByTagName("li");
+
+    // 获取左箭头和右箭头
     var timer = null
     var width = 600;
 
@@ -22,6 +24,31 @@ window.onload = function () {
         totallunbo.style.left = "-"+width*curindex+"px";
         totalOption[curindex].className = 'active';
      }
+     // 实现左箭头点击上一张，右箭头点击下一张
+     var arrowleft = document.querySelector(".left");
+     var arrowright = document.querySelector(".right");
+     arrowleft.onclick = function () { 
+         curindex--;
+         if (curindex<0) {
+             curindex = maxlen;
+         }
+         for(var i = 0; i <= maxlen; i++) {
+            totalOption[i].className = '';
+        }
+         totallunbo.style.left = "-"+width*curindex+"px";
+        totalOption[curindex].className = 'active';
+      }
+      arrowright.onclick = function () { 
+          curindex++;
+          if (curindex>maxlen) {
+              curindex = 0;
+          }
+          for(var i = 0; i <= maxlen; i++) {
+            totalOption[i].className = '';
+        }
+          totallunbo.style.left = "-"+width*curindex+"px";
+        totalOption[curindex].className = 'active';
+       }
      //在for循环里面是一个自执行函数时，在每次循环的过程中会把每个自执行函数在内存中储存起来，对应的i的值也储存在函数中。在循环过后（循环速度很快）,如果自执行函数里面有事件，就在事件触发的时候把i传递给事件处理函数的形参，然后执行；如果自执行函数里面没有事件，就会按照顺序一一执行。
       for(var i = 0;i<=maxlen;i++){
           (function(i) { 

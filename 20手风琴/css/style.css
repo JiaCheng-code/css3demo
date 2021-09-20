@@ -22,7 +22,7 @@
     list-style-type: none;
     width: 200px;
     height: 320px;
-    transition: all .5s;
+transition: all .5s; 
 }
 .box ul li p {
     position: absolute;
